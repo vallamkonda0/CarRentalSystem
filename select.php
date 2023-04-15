@@ -9,8 +9,38 @@
 <body>
 <?php
 require('db.php');
+include('auth.php');
+if(isset($_POST['book'])){
+    $id = stripslashes($_REQUEST['id']);
+    $id = mysqli_real_escape_string($con, $id);
+    $make = stripslashes($_REQUEST['make']);
+    $make = mysqli_real_escape_string($con, $make);
+    $price = stripslashes($_REQUEST['price']);
+    $price = mysqli_real_escape_string($con, $price);
+    $username = $_SESSION['username'];
+    $pickup_date = stripslashes($_REQUEST['pickup_date']);
+    $pickup_date = mysqli_real_escape_string($con, $pickup_date);
+    $return_date = stripslashes($_REQUEST['return_date']);
+    $return_date = mysqli_real_escape_string($con, $return_date);
+    $query = "INSERT into `booking_details`(car_ID, username, make, price, pickup_date, return_date, status)
+	VALUES ('$id', '$username','$make','$price','$pickup_date','$return_date', 'not yet confirmed')";
+    $result =mysqli_query($con, $query);
+    if ($result){
+       echo "<div class='form'>
+             <h3> Booked successfully</h3><br/>
+             <p class='link'><a href='userHome.php'>Login</a></p>
+             </div>";
+    }
+    else{
+       echo "<div class='form'>
+             <h3>Booking not completed</h3></br>
+             <p class='link'><a href='userHome.php'>Registration</a></p>
+             </div>";
+    }
+   }
+   else {
 ?>
-<form class="form" action="" method="post">
+<form class="form" name="book" method="POST" action="">
 <h2 style="font: size 45px;text-align:center;color:#FF0000">Book a Car</h2>
 <?php
     $id = $_REQUEST['id'];
@@ -30,4 +60,7 @@ require('db.php');
 </form>
 </div>
 </body>
+<?php
+   }
+?>
 </html>

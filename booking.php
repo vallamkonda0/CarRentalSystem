@@ -5,44 +5,47 @@
     <title>Cars</title>
     <link rel="stylesheet" href="style.css"/>
     <link rel="stylesheet" href="headers.css"/>
-    <header>
+<header>
     <div class="header_input">
     <nav>
         <ul>
-        <li><a href="booking.php">Booking Cars</a>&nbsp;&nbsp;</li>
-        <li><a href="logout.php">Logout</a>&nbsp;&nbsp;</li>
+            <li><a href="userHome.php">Home</a>&nbsp;&nbsp;</li>
+            <li><a href="logout.php">Logout</a>&nbsp;&nbsp;</li>
         </ul>
     </nav>
         
 </div>
 </header>
+
 </head>
 <body style="background-color:#FFFFFF;">
-<h3 class="login-title" style="font-size:50px;text-align:center"> Available Cars</h1>
+<h3 class="login-title" style="font-size:50px;text-align:center">Cars</h1>
 <?php
     require('db.php');
-    $query = "SELECT * from `cars`";
+    include('auth.php');
+    $query = "SELECT * from `booking_details`";
     $result = mysqli_query($con, $query);
     echo "<table border='1' style=  'margin-left: auto;
     margin-right: auto;width:70%'>
     <tr>
-    <th>Car</th>
     <th>Make</th>
-    <th>Year</th>
     <th>Price</th>
-    <th>Passengers</th>
-    <th>Select</th>
+    <th>Pick Up Date</th>
+    <th>Return Date</th>
+    <th>Booking Status</th>
+    <th>Payment</th>
     </tr>";
     while($row = mysqli_fetch_array($result))
     {
         echo "<tr style='height:200px'>";
-        echo "<td><img src='cars/{$row['carImgName']}' width='100'></td>";
         echo "<td>".$row['make']."</td>";
-        echo "<td>".$row['year']."</td>";
         echo "<td>".$row['price']."</td>";
-        echo "<td>".$row['passengers']."</td>";
+        echo "<td>".$row['pickup_date']."</td>";
+        echo "<td>".$row['return_date']."</td>";
+        echo "<td>".$row['status']."</td>";
+        
  ?>
-<td><a href="select.php?id=<?php echo $row['id']; ?>">Select</a></td>
+ <td><a href="payment.php">Pay</a></td>
  <?php
  }
  ?>

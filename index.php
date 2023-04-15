@@ -8,6 +8,7 @@
 <body>
 <?php
 require('db.php');
+session_start();
 if (isset($_REQUEST['username'])) {
     $username = stripslashes($_REQUEST['username']);
     $username = mysqli_real_escape_string($con, $username);
@@ -19,9 +20,11 @@ if (isset($_REQUEST['username'])) {
                  AND password='$password'";
     $rows = mysqli_num_rows(mysqli_query($con, $query));   
     if ($username=='Yogi' and $password=='Yogi123' and $usertype=='admin'){
+        $_SESSION['username'] = $username;
         header("Location: adminHome.php");
     }
     else if ($username=='Chaitu' and $password=='Chaitu' and $usertype=='admin'){
+        $_SESSION['username'] = $username;
         header("Location: adminHome.php");
     }
     else if ($rows == 1 ) {

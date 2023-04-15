@@ -4,6 +4,18 @@
     <meta charset="utf-8"/>
     <title>Cars</title>
     <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="headers.css"/>
+    <header>
+    <div class="header_input">
+    <nav>
+        <ul>
+            <li><a>Booking Cars</a>&nbsp;&nbsp;</li>
+            <li><a href="logout.php">Logout</a>&nbsp;&nbsp;</li>
+        </ul>
+    </nav>
+        
+</div>
+</header>
 
 </head>
 <body style="background-color:#FFFFFF;">
