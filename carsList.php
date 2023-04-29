@@ -5,7 +5,7 @@
     <title>Cars</title>
     <link rel="stylesheet" href="style.css"/>
     <link rel="stylesheet" href="headers.css"/>
-    <header>
+<header>
     <div class="header_input">
     <nav>
         <ul>

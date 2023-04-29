@@ -23,18 +23,19 @@ if(isset($_POST['book'])){
     $return_date = stripslashes($_REQUEST['return_date']);
     $return_date = mysqli_real_escape_string($con, $return_date);
     $query = "INSERT into `booking_details`(car_ID, username, make, price, pickup_date, return_date, status)
-	VALUES ('$id', '$username','$make','$price','$pickup_date','$return_date', 'not yet confirmed')";
+	VALUES ('$id', '$username','$make','$price','$pickup_date','$return_date', 'booked')";
     $result =mysqli_query($con, $query);
     if ($result){
+        mysqli_query($con,"update `cars` set status='booked' where id='$id'");
        echo "<div class='form'>
              <h3> Booked successfully</h3><br/>
-             <p class='link'><a href='userHome.php'>Login</a></p>
+             <p class='link'><a href='userHome.php'>Home/a></p>
              </div>";
     }
     else{
        echo "<div class='form'>
              <h3>Booking not completed</h3></br>
-             <p class='link'><a href='userHome.php'>Registration</a></p>
+             <p class='link'><a href='userHome.php'>Home</a></p>
              </div>";
     }
    }

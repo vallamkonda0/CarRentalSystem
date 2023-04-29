@@ -10,6 +10,7 @@
     <nav>
         <ul>
             <li><a href="userHome.php">Home</a>&nbsp;&nbsp;</li>
+            <li><a href="return.php">Return Cars</a>&nbsp;&nbsp;</li>
             <li><a href="logout.php">Logout</a>&nbsp;&nbsp;</li>
         </ul>
     </nav>
@@ -23,7 +24,8 @@
 <?php
     require('db.php');
     include('auth.php');
-    $query = "SELECT * from `booking_details`";
+    $username= $_SESSION['username'];
+    $query = "SELECT * from `booking_details` where username='$username'";
     $result = mysqli_query($con, $query);
     echo "<table border='1' style=  'margin-left: auto;
     margin-right: auto;width:70%'>
@@ -45,7 +47,7 @@
         echo "<td>".$row['status']."</td>";
         
  ?>
- <td><a href="payment.php">Pay</a></td>
+<td><a href="payment.php">Pay</a></td>
  <?php
  }
  ?>

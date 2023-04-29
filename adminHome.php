@@ -4,6 +4,19 @@
     <meta charset="utf-8"/>
     <title>Add New Car</title>
     <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="headers.css"/>
+    <header>
+    <div class="header_input">
+    <nav>
+        <ul>
+            <li><a href="bookingList.php">Booking List</a>&nbsp;&nbsp;</li>
+            <li><a href="feedbackList.php">FeedBack</a>&nbsp;&nbsp;</li>
+            <li><a href="logout.php">Logout</a>&nbsp;&nbsp;</li>
+        </ul>
+    </nav>
+        
+</div>
+</header>
 </head>
 <body>
 <?php
@@ -53,7 +66,6 @@ require('db.php');
         <input type="text" class="form-input" name="passengers" placeholder="Num Of Passengers" required>
         <input type="text" class="form-input" name="carSize" placeholder="Car Size" required>
         <input type="submit" value="Add New Car" name="submit" class="form-button"/>
-        <p class="link"><a href="carsList.php">Cars</a><p>
   </form>
 </body>
 <?php

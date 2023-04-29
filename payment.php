@@ -13,13 +13,16 @@
 <div class="container">
 <div class="row">
 <div class="col-md-6">
-<form class="form-horizontal" method="POST" action="https://www.sandbox.PayPal.com/cgi-bin/webscr ">
+<form class="form-horizontal" method="POST" action="'https://www.sandbox.paypal.com/cgi-bin/webscr' : 'https://www.paypal.com/cgi-bin/webscr' ">
 <fieldset>
 <legend>Pay with PayPal</legend>
 <div class="form-group">
 <label class="col-md-4 control-label" for="amount">Payment Amount</label>
 <div class="col-md-4">
 <input id="amount" name="amount" type="text" placeholder="amount to pay" class="form-control input-md" required="">
+<div class="col-md-4">
+                               <button id="submit" name="pay_now" class="btn btn-danger">Pay With PayPal</button>
+                           </div>
 <span class="help-block">help</span>
 </div>
 </div>
