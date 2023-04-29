@@ -23,7 +23,7 @@
 <?php
     require('db.php');
     include('auth.php');
-    $query = "SELECT * from `cars`";
+    $query = "SELECT * from `cars` where status='available'";
     $result = mysqli_query($con, $query);
     echo "<table border='1' style=  'margin-left: auto;
     margin-right: auto;width:70%'>
