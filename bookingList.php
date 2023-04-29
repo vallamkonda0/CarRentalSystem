@@ -35,7 +35,6 @@
     <th>Pick Up Date</th>
     <th>Return Date</th>
     <th>Booking Status</th>
-    <th>Payment</th>
     </tr>";
     while($row = mysqli_fetch_array($result))
     {
@@ -48,9 +47,6 @@
         echo "<td>".$row['return_date']."</td>";
         echo "<td>".$row['status']."</td>";
         
- ?>
-<td><a href="payment.php">Pay</a></td>
- <?php
  }
  ?>
 </body>
