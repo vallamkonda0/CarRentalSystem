@@ -40,7 +40,7 @@
   if ($result) {
     echo "<div class='form'>
           <h3>You have given feedback successfully.</h3><br/>
-          <p class='link'>Click here to <a href='home_user.php'>Home Page</a></p>
+          <p class='link'>Click here to <a href='userHome.php'>Home Page</a></p>
           </div>";
 } else {
     echo "<div class='form'>
